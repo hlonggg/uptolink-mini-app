@@ -15,7 +15,6 @@ from monitor import (
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "8983631020:AAHitwdCI9SyIeTqR2Ukr50Ng_V84JmcE7U")
 BASE_URL = os.getenv("BASE_URL", "https://your-project.railway.app")
 
-# Thay đổi đường dẫn static
 app = Flask(__name__, static_folder='frontend', static_url_path='')
 CORS(app)
 
@@ -59,7 +58,6 @@ def start_check():
         if is_checking:
             return jsonify({"status": "already_running", "message": "Đang kiểm tra, vui lòng đợi!"}), 429
         
-        # Kiểm tra thời gian giữa các phiên
         if last_check_time:
             time_diff = (datetime.now() - last_check_time).total_seconds() / 60
             if time_diff < 30:
@@ -196,11 +194,11 @@ def webhook():
 # =================== STATIC FILES ===================
 @app.route('/')
 def serve_index():
-    return send_from_directory('../frontend', 'index.html')
+    return send_from_directory('frontend', 'index.html')
 
 @app.route('/<path:path>')
 def serve_static(path):
-    return send_from_directory('../frontend', path)
+    return send_from_directory('frontend', path)
 
 # =================== MAIN ===================
 if __name__ == '__main__':
