@@ -48,8 +48,9 @@ BLACKLIST_DOMAINS = [
     "googlesyndication.com", "doubleclick.net"
 ]
 
-USERS_FILE = "users.json"
-CODES_FILE = "found_codes.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+USERS_FILE = os.path.join(BASE_DIR, "users.json")
+CODES_FILE = os.path.join(BASE_DIR, "found_codes.json")
 STEP1_TIMEOUT = 15
 
 # =================== DRIVER ===================
