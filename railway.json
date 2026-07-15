@@ -1,6 +1,6 @@
 {
   "build": {
-    "builder": "RALLPACK"
+    "builder": "RAILPACK"
   },
   "deploy": {
     "startCommand": "bash backend/start.sh",
